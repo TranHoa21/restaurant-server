@@ -1,0 +1,49 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "pYKPGmpIpYYhxHKSATUVhogAEIxlFZsW",
+    "database": "railway",
+    "host": "junction.proxy.rlwy.net",
+    "dialect": "postgres",
+    "port": 59417,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      },
+      "connectTimeout": 60000
+    },
+    "logging": false,
+    "timezone": "+07:00"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "pYKPGmpIpYYhxHKSATUVhogAEIxlFZsW",
+    "database": "railway",
+    "host": "junction.proxy.rlwy.net",
+    "dialect": "postgres",
+    "port": 59417,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      },
+      "connectTimeout": 60000
+    }
+  },
+  "production": {
+    "username": "postgres",
+    "password": "pYKPGmpIpYYhxHKSATUVhogAEIxlFZsW",
+    "database": "railway",
+    "host": "junction.proxy.rlwy.net",
+    "dialect": "postgres",
+    "port": 59417,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      },
+      "connectTimeout": 60000
+    }
+  }
+}
