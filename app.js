@@ -3,6 +3,15 @@ const app = express();
 import initRouter from './src/routers';
 require('dotenv').config();
 const { Pool } = require('pg');
+import cors from 'cors';
+
+app.use(cors({
+
+    origin: [, 'http://localhost:3000', 'http://localhost:3002'],
+    credentials: true
+}));
+
+
 
 const pool = new Pool({
     user: process.env.USER_POSTGRE,
@@ -14,6 +23,7 @@ const pool = new Pool({
         rejectUnauthorized: false,
     }
 });
+
 
 pool.connect((err, client, release) => {
     if (err) {
