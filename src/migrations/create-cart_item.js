@@ -15,10 +15,18 @@ module.exports = {
             cart_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
+                references: {
+                    model: 'Carts',
+                    key: 'id',
+                },
             },
             menu_id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
+                references: {
+                    model: 'Menus',
+                    key: 'id',
+                },
 
             },
             quantity: {
