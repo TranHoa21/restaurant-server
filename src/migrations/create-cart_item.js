@@ -1,31 +1,35 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('Menus', {
+        await queryInterface.createTable('Cart_Items', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            name: {
-                type: Sequelize.STRING
+            cart_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
             },
-            img: {
-                type: Sequelize.STRING
+            menu_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+
             },
-            country: {
-                type: Sequelize.STRING
-            },
-            describe: {
-                type: Sequelize.STRING
+            quantity: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+
             },
             price: {
-                type: Sequelize.INTEGER
-            },
-            dish_list: {
-                type: Sequelize.STRING
+                type: Sequelize.INTEGER,
+                allowNull: false,
+
             },
 
             createdAt: {
@@ -35,13 +39,10 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: 'TIMESTAMP', defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-            },
-            stock: {
-                type: Sequelize.INTEGER
-            },
+            }
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('Menus');
+        await queryInterface.dropTable('Cart_Items');
     }
 };

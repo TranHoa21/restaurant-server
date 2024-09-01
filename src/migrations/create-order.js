@@ -1,33 +1,31 @@
 'use strict';
+
+const { DataTypes } = require('sequelize');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('Menus', {
+        await queryInterface.createTable('Likes', {
             id: {
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            name: {
-                type: Sequelize.STRING
+            user_id: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
             },
-            img: {
-                type: Sequelize.STRING
-            },
-            country: {
-                type: Sequelize.STRING
-            },
-            describe: {
-                type: Sequelize.STRING
-            },
-            price: {
-                type: Sequelize.INTEGER
-            },
-            dish_list: {
-                type: Sequelize.STRING
-            },
+            total_price: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
 
+            },
+            status: {
+                type: Sequelize.ENUM('new', "pending", "shipped", "completed"),
+                defaultValue: 'new',
+                allowNull: false
+            },
             createdAt: {
                 allowNull: false,
                 type: 'TIMESTAMP', defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
@@ -35,13 +33,10 @@ module.exports = {
             updatedAt: {
                 allowNull: false,
                 type: 'TIMESTAMP', defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-            },
-            stock: {
-                type: Sequelize.INTEGER
-            },
+            }
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('Menus');
+        await queryInterface.dropTable('Likes');
     }
 };
